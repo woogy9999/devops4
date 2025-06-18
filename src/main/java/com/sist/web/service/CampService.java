@@ -11,3 +11,4 @@ public interface CampService {
 	
 	public int campTotalPage ();
 }
+ 

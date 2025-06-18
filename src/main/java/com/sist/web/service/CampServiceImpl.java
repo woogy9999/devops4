@@ -20,6 +20,6 @@ public class CampServiceImpl implements CampService {
 	}
 	public int campTotalPage() {
 		return mapper.campTotalPage();
-	}
+	} 
 	
 }
