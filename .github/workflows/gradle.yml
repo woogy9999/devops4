@@ -39,11 +39,11 @@ jobs:
           ssh-private-key: ${{ secrets.SERVER_SSH_KEY }}
 
       - name: Add known hosts
-        run: ssh-keyscan -t ed25519 ${{ vars.IP_ADDRESS }} >> ~/.ssh/known_hosts
+        run: ssh-keyscan -t ed25519 ${{ secrets.IP_ADDRESS }} >> ~/.ssh/known_hosts
 
       - name: Deploy on server using DockerHub image
         run: |
-          ssh ubuntu@${{ vars.IP_ADDRESS }} << 'EOF'
+          ssh ubuntu@${{ secrets.IP_ADDRESS }} << 'EOF'
             docker stop spring-app || true
             docker rm spring-app || true
             docker pull ${{ secrets.DOCKER_USERNAME }}/spring-app:latest
